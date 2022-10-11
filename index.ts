@@ -5,10 +5,17 @@ import { constructMessage, failedRedirectURL, successRedirectURL, transporterCon
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
 import { contactFormSchema } from './schemas';
+import cors from 'cors';
 
 dotenv.config();
 
 const webserver = new Server();
+
+webserver.use(
+  cors({
+    origin: process.env['FRONTEND_ADDRESS'],
+  })
+);
 
 const transporter = createTransport(transporterConfig);
 

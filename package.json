@@ -6,6 +6,7 @@
     "build": "tsc -p ."
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "hyper-express": "^6.4.10",
     "nodemailer": "^6.8.0",
@@ -14,6 +15,7 @@
     "zod-validation-error": "^0.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/node": "^18.8.4",
     "@types/nodemailer": "^6.4.6",
     "nodemon": "^2.0.20",
