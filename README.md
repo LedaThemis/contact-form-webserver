@@ -7,6 +7,19 @@ A webserver built using [hyper-express](https://github.com/kartikk221/hyper-expr
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
+
+## Table of Contents
+- [Contact Form Backend](#contact-form-backend)
+  - [Technologies Used](#technologies-used)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+  - [Example Config](#example-config)
+  - [Request Structure](#request-structure)
+  - [Message Structure](#message-structure)
+    - [Where each variable come from](#where-each-variable-come-from)
+  - [Contributing](#contributing)
+  - [License](#license)
+
 ## Usage
 
 - Define all variables in `.env`
@@ -51,7 +64,7 @@ Subject: `EMAIL_SUBJECT` | `SENDER_NAME` <`SENDER_EMAIL`>
 
 Text: `MESSAGE_CONTENT`
 
-### Where each variable comes from
+### Where each variable come from
 
 - NAME: env
 - EMAIL: env
