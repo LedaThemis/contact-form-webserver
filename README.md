@@ -26,6 +26,7 @@ EMAIL=john@example.com
 PASSWORD=password
 CONTACT_ADDRESS=john+contact@example.com
 PORT=5555
+FRONTEND_ADDRESS=http://localhost:3000
 ```
 
 Note: This is the [SMTP config if you're using Zoho Mail with a custom domain](https://www.zoho.com/mail/help/zoho-smtp.html).
