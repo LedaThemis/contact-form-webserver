@@ -11,6 +11,7 @@ declare global {
       PASSWORD: string;
       NODE_ENV: 'development' | 'production';
       PORT: string;
+      FRONTEND_ADDRESS: string;
     }
   }
 }

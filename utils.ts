@@ -19,7 +19,7 @@ export const transporterConfig = {
  * @param senderName Name of sender
  * @param messageContent Content of message
  * @returns message
- * 
+ *
  */
 export const constructMessage = (senderEmail: string, senderName: string, messageContent: string) => ({
   from: `${process.env['NAME']} <${process.env['EMAIL']}>`,
@@ -27,3 +27,8 @@ export const constructMessage = (senderEmail: string, senderName: string, messag
   subject: `${process.env['EMAIL_SUBJECT']} | ${senderName} <${senderEmail}>`,
   text: messageContent,
 });
+
+export const successRedirectURL = () => `${process.env['FRONTEND_ADDRESS']}/form/success`;
+
+export const failedRedirectURL = (errorText: string) =>
+  `${process.env['FRONTEND_ADDRESS']}/form/failed?errorText=${errorText}`;

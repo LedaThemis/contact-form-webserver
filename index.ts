@@ -1,7 +1,7 @@
 import { Server } from 'hyper-express';
 import { createTransport } from 'nodemailer';
 import dotenv from 'dotenv';
-import { constructMessage, transporterConfig } from './utils';
+import { constructMessage, failedRedirectURL, successRedirectURL, transporterConfig } from './utils';
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
 import { contactFormSchema } from './schemas';
@@ -27,17 +27,14 @@ webserver.get('/', (request, response) => {
 });
 
 webserver.post('/contact', async (request, response) => {
-  const body: z.infer<typeof contactFormSchema> = await request.json();
+  const body: z.infer<typeof contactFormSchema> = await request.urlencoded();
 
   const data = contactFormSchema.safeParse(body);
 
   if (!data.success) {
     const error = fromZodError(data.error);
 
-    return response.status(400).json({
-      success: false,
-      error: error.message,
-    });
+    return response.redirect(failedRedirectURL(error.message));
   }
 
   const message = constructMessage(body.email, body.name, body.content);
@@ -45,13 +42,12 @@ webserver.post('/contact', async (request, response) => {
   transporter.sendMail(message, (error, info) => {
     if (error) {
       console.log(`Error occurred! ${error.message}`);
-      return response.status(500).json({
-        success: false,
-        error: 'An error occurred while sending email, please try again.',
-      });
+      return response.redirect(
+        failedRedirectURL('Internal Error: An error occurred while sending email, please try again.')
+      );
     }
 
-    return response.json({ success: true });
+    return response.redirect(successRedirectURL());
   });
 });
 
