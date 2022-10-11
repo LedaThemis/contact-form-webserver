@@ -17,6 +17,7 @@ A webserver built using [hyper-express](https://github.com/kartikk221/hyper-expr
   - [Request Structure](#request-structure)
   - [Message Structure](#message-structure)
     - [Where each variable come from](#where-each-variable-come-from)
+  - [Related Repositories](#related-repositories)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -73,6 +74,11 @@ Text: `MESSAGE_CONTENT`
 - SENDER_NAME: body in POST request as "name"
 - SENDER_EMAIL: body in POST request as "email"
 - MESSAGE_CONTENT: body in POST request as "content"
+
+## Related Repositories
+
+- [Portfolio](https://github.com/LedaThemis/portfolio)
+- [Strapi](https://github.com/LedaThemis/portfolio-strapi)
 
 ## Contributing
 
